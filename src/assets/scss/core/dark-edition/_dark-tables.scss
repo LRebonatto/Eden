@@ -1,0 +1,29 @@
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td > div {
+  color: $table-text-color;
+  border-color: $table-borders-color;
+}
+
+.table-hover tbody tr:hover {
+  background-color: $table-hover-bg;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd){
+  background-color: #42485680;
+}
+
+.table.table-hover tbody tr:hover{
+background-color: #394b79;
+}
+
+.ngx-pagination a, .ngx-pagination button{
+  color: $white;
+}
+.ngx-pagination a:hover, .ngx-pagination button:hover {
+  background: #2f5d636b;
+  font-weight: bold;
+}

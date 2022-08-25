@@ -1,0 +1,22 @@
+<div class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="title">Escolha de módulo</h2>
+            </div>
+        </div>
+        <div class="row bg-modules">
+            <div *ngFor="let module of modules; let on = index;trackBy:trackByIndex;"
+                class="col-xl-2 col-lg-3 col-md-4 col-mod">
+                <div class="frame-circle"
+                    [ngClass]="{'active': selectedIndex === on, 'disable': module.user_active == 0}">
+                    <dotlottie-player class="item-lottie {{module.name}}" hover loop (click)="selectModule(on, $event)"
+                        mode="normal" src="{{module.module_img_path}}">
+                    </dotlottie-player>
+                    <span class="item-title">{{module.title}} </span>
+                    <span class="item-description">{{module.description}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

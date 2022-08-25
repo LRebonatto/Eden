@@ -1,0 +1,198 @@
+//Lightmode - Sun
+.toggle--label {
+  width: 60px;
+  height: 30px;
+  background: #96dcee;
+  border-radius: 50px;
+  border: 2px solid #72cce3;
+  display: flex;
+  position: relative;
+  transition: all 350ms ease-in;
+  cursor: pointer;
+
+  // &:Sun
+  &:before {
+    width: 22px;
+    height: 22px;
+    top: 2px;
+    left: 2px;
+    animation-name: reverse;
+    animation-duration: 350ms;
+    animation-fill-mode: forwards;
+    transition: all 350ms ease-in;
+    content: "";
+    border: 2px solid #f5eb71;
+    position: absolute;
+    border-radius: 82px;
+    background: #fffaa8;
+  }
+}
+
+//Cloud-1
+.toggle-label-background {
+  width: 10px;
+  height: 3px;
+  left: 38px;
+  top: 12px;
+  border-radius: 3px;
+  position: relative;
+  background: #ffffff;
+  transition: all 150ms ease-in;
+
+  //Cloud-2
+  &:before {
+    width: 19px;
+    height: 3px;
+    top: -4px;
+    left: -10px;
+    content: "";
+    position: absolute;
+    border-radius: 5px;
+    background: #ffffff;
+    transition: all 150ms ease-in;
+  }
+
+  //Cloud-3
+  &:after {
+    width: 16px;
+    height: 3px;
+    top: 4px;
+    left: -9px;
+    content: "";
+    position: absolute;
+    border-radius: 5px;
+    background: #ffffff;
+    transition: all 150ms ease-in;
+  }
+}
+
+//Darkmode - Moon
+.toggle--checkbox {
+  display: none;
+
+  &:checked+.toggle--label {
+    background: transparent;
+    border-color: #9095a3;
+  }
+
+  //Star-right
+  &:checked+.toggle--label .toggle-label-background {
+    width: 1.4px;
+    height: 1.4px;
+    left: 22px;
+    // Star-mid
+    box-shadow: #fff -4px 3px 1px 0px;
+  }
+
+  //Star-left
+  &:checked+.toggle--label .toggle-label-background:before {
+    width: 1.4px;
+    height: 1.4px;
+    top: -1px;
+    left: -11px;
+    //Star-top
+    box-shadow: #fff 8px -5px 0px 0px;
+  }
+
+  //Star-bottom
+  &:checked+.toggle--label .toggle-label-background:after {
+    width: 1.4px;
+    height: 1.4px;
+    left: -7px;
+    top: 8px;
+  }
+
+  &:checked+.toggle--label:before {
+    background: #ffffff;
+    border-color: #e8e8ea;
+    animation-name: switch;
+    animation-duration: 350ms;
+    animation-fill-mode: forwards;
+    filter: drop-shadow(0px 0px 10px rgba(226, 211, 72, 0.781));
+  }
+
+  &:checked+.toggle--label:after {
+    transition-delay: 350ms;
+    opacity: 1;
+  }
+}
+
+.card-profile .card-avatar img {
+  width: 100%;
+  height: auto;
+}
+
+//Animations
+@keyframes switch {
+  0% {
+    left: 2px;
+  }
+
+  60% {
+    left: 4px;
+    width: 10px;
+  }
+
+  100% {
+    left: 32px;
+    width: 22px;
+  }
+}
+
+@keyframes reverse {
+  0% {
+    left: 38px;
+    width: 22px;
+  }
+
+  60% {
+    left: 22px;
+    width: 3px;
+  }
+
+  100% {
+    left: 2px;
+  }
+}
+
+
+img {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.card-avatar {
+  text-align: center;
+  margin-right: 10px;
+}
+
+.frame-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #fff;
+  background-color: #4754667d;
+  margin-left: 15px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  
+  .change{
+    position: absolute;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.724);
+    padding: 20px;
+
+  }
+  &:hover .change{
+    display: block;
+  }
+}

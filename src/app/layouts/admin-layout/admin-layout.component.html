@@ -1,0 +1,24 @@
+<div class="wrapper">
+    <div class="sidebar" data-color="azure">
+        <div class="logo">
+            <div class="logo-img">
+                <img src="/assets/img/mes-sitec_{{mode}}.svg" alt="logo sistema" [routerLink]="['/home']"
+                    style="cursor: pointer;" matTooltip="Ir para a página inicial" matTooltipClass="tooltip-tip" />
+            </div>
+        </div>
+        <app-sidebar></app-sidebar>
+        <div class="appVersion">
+            <h6>Versão: {{appVersion}}</h6>
+        </div>
+        <div class="toggle-tip">
+            <input (click)="toggleTip()" [(ngModel)]="tip" matTooltip="{{tip_message}} dicas"
+                matTooltipClass="tooltip-tip" type="checkbox" class="l">
+        </div>
+        <div class="sidebar-background" style="background-image: url(./assets/img/bg.jpg)"></div>
+    </div>
+    <div class="main-panel">
+        <app-navbar></app-navbar>
+        <router-outlet></router-outlet>
+        <app-footer></app-footer>
+    </div>
+</div>

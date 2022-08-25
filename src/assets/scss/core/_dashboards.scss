@@ -1,0 +1,77 @@
+.dashboard {
+
+    .boundary {
+        max-width: 100%;  
+        border: dotted rgba(128, 128, 128, 0.26) 1px;
+        border-radius: 6px;
+        height: 1000px;  
+        min-height: 900px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .cdk-drag.card {//!ajustar cursor behavior
+        cursor: auto;
+        display: inline-flex;
+        position: relative;
+        z-index: 4;
+        box-sizing: border-box;
+    }
+
+    .cdk-drag-dragging {
+        z-index: 2000 !important;
+        opacity: 0.8;
+        cursor: grabbing !important;
+        //position: static !important;
+    }
+
+    .card {
+        min-width: 240px;
+        min-height: 140px;
+        transform: none;
+        left: 0;
+        top: 0;
+    }
+
+    #cardDashboard {
+        position: absolute !important;
+        box-shadow: none;
+        background: transparent;
+        .card-header{
+            margin-top: 0px;
+        }
+        .card-body {
+            overflow-y: hidden !important;
+            overflow-x: hidden !important;
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: -20px;
+            padding: 35px 12px 12px 12px !important;
+            border-radius: 6px;
+            box-shadow: 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+            background: $white-color;
+            & canvas{
+                margin-bottom: 5px;
+            }
+        }
+
+    }
+
+
+    .col-auto.component{
+        position: relative !important;
+    }
+}
+//Active resize handle for cards
+.drag-cards {
+    .m22-resizable-handle {
+        display: block !important;
+    }
+
+    .m22-resizable-triangle {
+        display: block !important;
+    }
+}

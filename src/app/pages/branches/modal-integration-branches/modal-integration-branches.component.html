@@ -1,0 +1,75 @@
+<app-generic-alert [message]="message" [type]="type" [template]="template" (onChangeValue)="updateValue($event)">
+</app-generic-alert>
+
+<div class="container p-0" style="text-align:center">
+    <div class="row mt-n3 justify-content-end">
+        <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+            <mat-icon class="close-icon" color="warn">close</mat-icon>
+        </button>
+    </div>
+    <h2 mat-dialog-title style="font-size: 16px; font-weight:400; margin-bottom: 20px;">Integrar filiais</h2>
+   
+    <hr>
+    <mat-dialog-content>
+        <div class="row">
+            <div class="col-md-8">
+                <mat-form-field appearance="fill">
+                    <mat-label>Selecione a empresa</mat-label>
+                    <!-- <mat-select [(ngModel)]="company_selected" name="field2">
+                        <mat-option *ngFor="let company of companies" class="option" [value]="company.id">
+                            {{company.name}}</mat-option>
+                    </mat-select> -->
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary-iform" (click)="integrateBranches()"> Integrar filiais </button>
+            </div>
+        </div>
+    </mat-dialog-content>
+
+    <!-- <p style="text-align: left; width:100%">Selecione as filiais</p> -->
+    <mat-dialog-content>
+        <section class="section" *ngIf="task.subtasks.length == 0">
+            <strong style="color: red;">Não há filiais para integrar!</strong>
+        </section>
+        <section class="section" *ngIf="task.subtasks.length != 0">
+            <span class="list-section">
+                <div>
+
+                    <mat-checkbox class="example-margin" [checked]="allComplete" color="accent"
+                        [indeterminate]="someComplete()" (change)="setAll($event.checked)">
+                        {{task.name}}
+                    </mat-checkbox>
+                </div>
+            </span>
+            <span class="list-section">
+                <ul>
+                    <li class="list">
+                        <div class="lista">
+                            <mat-label class="header-table">Nome filial</mat-label>
+                            <mat-label class="header-table">
+                                CNPJ
+                            </mat-label>
+                            
+                        </div>
+                    </li>
+                    <li class="list" *ngFor="let subtask of task.subtasks">
+                        <div class="lista">
+                            <mat-checkbox [(ngModel)]="subtask.completed" color="accent"
+                                (ngModelChange)="updateAllComplete()">
+                                <mat-label>
+                                    {{subtask.description}}
+                                </mat-label>
+                            </mat-checkbox>
+                            <mat-label>
+                                {{subtask.cnpj}}
+                            </mat-label>
+                           
+                        </div>
+                    </li>
+                </ul>
+            </span>
+        </section>
+    </mat-dialog-content>
+
+</div>

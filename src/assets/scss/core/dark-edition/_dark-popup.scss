@@ -1,0 +1,11 @@
+//SweetAlert popup
+.swal2-popup{
+    background-color: #1a2035;
+    .swal2-confirm {
+        background-color: $iform-color;
+        border: 0 solid $iform-color;
+        &:focus {
+            box-shadow: none;
+        }    
+    }
+}

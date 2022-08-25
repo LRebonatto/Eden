@@ -1,0 +1,57 @@
+@use "~@angular/material" as mat;
+@import "~@angular/material/theming";
+@include mat.core();
+
+$angular-primary: mat.define-palette(mat.$blue-palette, 500, 100, 900); //azul cerceta
+$angular-accent: mat.define-palette(mat.$blue-palette, A200, A100, A400);
+$angular-warn: mat.define-palette(mat.$red-palette);
+
+$angular-dark-theme: mat.define-dark-theme((color: (primary: $angular-primary,
+        accent: $angular-accent,
+        warn: $angular-warn,
+      ),
+    ));
+
+@include mat.all-component-colors($angular-dark-theme);
+
+.mat-dialog-container,
+.mat-stepper-horizontal {
+  background-color: #1a2035;
+}
+
+.mat-date-range-input-start-wrapper>span,
+.mat-date-range-input-inner {
+  color: #fff;
+}
+
+.tooltip-primary,
+.tooltip-tip {
+  color: #fff !important;
+  font-size: 14px;
+}
+
+.mat-form-field-flex {
+  background-color: #202940 !important;
+}
+
+//Blue dots on stepper 
+.mat-step-header .mat-step-icon-selected,
+.mat-step-header .mat-step-icon-state-done,
+.mat-step-header .mat-step-icon-state-edit {
+  background-color: $iform-color  !important;
+  color: #fff;
+}
+
+.mat-progress-bar-buffer {
+  background-color: #2860674f;
+}
+
+.mat-progress-bar-fill {
+  &::after {
+    background-color: $iform;
+  }
+}
+
+.mat-progress-bar-background {
+  fill: #28606700;
+}

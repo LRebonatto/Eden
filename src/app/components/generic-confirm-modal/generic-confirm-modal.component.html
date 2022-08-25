@@ -1,0 +1,26 @@
+<h1 style="font-size: 16px; font-weight: 400;">
+  {{ title }}
+</h1>
+
+<div>
+  <p>{{ message }}</p>
+</div>
+
+<div>
+  <button
+    mat-raised-button
+    class="btn btn-secondary pull-right"
+    style="margin-right: 20px; margin-bottom: 30px"
+    (click)="onDismiss()"
+  >
+    {{ button_cancel }}
+  </button>
+  <button
+    mat-raised-button
+    class="btn btn-warning pull-right"
+    style="margin-right: 20px; margin-bottom: 30px"
+    (click)="onConfirm()"
+  >
+    {{ button_ok }}
+  </button>
+</div>

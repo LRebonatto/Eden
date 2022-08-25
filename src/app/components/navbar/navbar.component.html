@@ -1,0 +1,107 @@
+<nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-wrapper">
+            <ul class="nav">
+                <mat-button class="btn menu-item" [matMenuTriggerFor]="main" matTooltip="menu"
+                    matTooltipClass="tooltip-primary">
+                    <mat-icon class="menu-icon">menu</mat-icon>
+                    <span>Menu Principal</span>
+                </mat-button>
+                <mat-menu #main="matMenu">
+                    <ng-container *ngFor="let menu of menuItems?.menu">
+                        <button *ngIf="menu.type === 'link'" mat-menu-item class="menu-item" [routerLink]="[menu.path]"
+                            routerLinkActive="active">
+                            <mat-icon>{{ menu.icon_type }}</mat-icon>
+                            <span>{{menu.title}}</span>
+                        </button>
+                        <button *ngIf="menu.type === 'sub'" mat-menu-item class="menu-item" [matMenuTriggerFor]="sub">
+                            <mat-icon>{{ menu.icon_type }}</mat-icon>
+                            <span>{{menu.title}}</span>
+                        </button>
+                        <button *ngIf="menu.type === 'sub1'" mat-menu-item class="menu-item" [matMenuTriggerFor]="sub1">
+                            <mat-icon>{{ menu.icon_type }}</mat-icon>
+                            <span>{{menu.title}}</span>
+                        </button>
+                    </ng-container>
+                </mat-menu>
+                <mat-menu #sub="matMenu">
+                    <ng-container *ngFor="let menu of menuItems?.menu">
+                        <div *ngIf="menu.type === 'sub'">
+                            <div *ngFor="let submenu of menu.submenus">
+                                <button mat-menu-item [routerLink]="[submenu.path]" class="menu-item"
+                                    routerLinkActive="active">
+                                    <span>{{submenu.title}}</span>
+                                </button>
+                            </div>
+                        </div>
+                    </ng-container>
+                </mat-menu>
+                <mat-menu #sub1="matMenu">
+                    <ng-container *ngFor="let menu of menuItems?.menu">
+                        <div *ngIf="menu.type === 'sub1'">
+                            <div *ngFor="let submenu of menu.submenus">
+                                <button mat-menu-item [routerLink]="[submenu.path]" class="menu-item"
+                                    routerLinkActive="active">
+                                    <span>{{submenu.title}}</span>
+                                </button>
+                            </div>
+                        </div>
+                    </ng-container>
+                </mat-menu>
+            </ul>
+        </div>
+        <button mat-raised-button class="navbar-toggler" type="button" (click)="sidebarToggle()">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <ul class="navbar-nav">
+                <li class="nav-item" style="margin-right: 10px; display: flex; align-items: center;">
+                    <div class="card-avatar">
+                        <a href="javascript:void(0)" [routerLink]="'profile'">
+                            <img *ngIf="image != null" class="img" [src]="image" alt="">
+                            <img *ngIf="image == null" class="img" src="./assets/img/perfil_padrao.png" />
+                        </a>
+                    </div>
+                    <h5 style="margin: 0; cursor: pointer;" [routerLink]="'profile'" matTooltip="Meu perfil"
+                        matTooltipClass="tooltip-primary">
+                        <strong> {{userName}} </strong>
+                    </h5>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-primary-iform" (click)="openDialog()" matTooltip="Selecionar filial"
+                        matTooltipClass="tooltip-primary">{{branchName}}</button>
+                </li>
+                <li class="nav-item">
+                    <button class="frame-circle" (click)="toggleModule()" matTooltip="Selecionar módulo"
+                        matTooltipClass="tooltip-primary">
+                        <dotlottie-player *ngIf="module.path" class="item-lottie" autoplay mode="normal"
+                            src="{{module.path}}">
+                        </dotlottie-player>
+                        <i class="material-icons change">sync</i>
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)" (click)="logout()" matTooltip="Sair"
+                        matTooltipClass="tooltip-primary">
+                        <i class="material-icons">logout</i>
+                        <p>
+                            <span class="d-lg-none d-md-block">Sair</span>
+                        </p>
+                    </a>
+                </li>
+                <li class="position-relative">
+                    <input (click)="activeDarknight()" [(ngModel)]="darknight" type="checkbox" id="toggle"
+                        class="toggle--checkbox">
+                    <label for="toggle" class="toggle--label m-0" matTooltip="Alternar Tema"
+                        matTooltipClass="tooltip-primary">
+                        <span class="toggle-label-background"></span>
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

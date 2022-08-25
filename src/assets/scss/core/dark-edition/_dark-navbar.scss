@@ -1,0 +1,78 @@
+.navbar {
+  &:not([class*="bg-"]) {
+    .navbar-brand,
+    .collapse .navbar-nav .nav-item .nav-link {
+      color: $navbar-color-links;
+    }
+  }
+
+  &.navbar-transparent {
+    background: linear-gradient(60deg, #283045, #2a3758);
+  }
+
+  .nav li.nav-item {
+
+    &:hover,
+    &.active {
+      background-color: #24585fbb;
+    }
+  }
+  .mat-menu-item
+  .menu-item, .mat-menu-item {
+    span {
+      color: #373737;
+    }
+
+    &:hover,
+    &.active {
+      background: #24585fbb !important;
+
+      span,
+      mat-icon,
+      i {
+        color: #fff;
+      }
+    }
+  }
+
+  .menu-icon {
+    color: #555
+  }
+  .menu-icon,
+  i,
+  span {
+    color: #fff !important;
+  }
+
+  .menu-item {
+    span, i, .menu-icon {
+      color: #fff !important;
+    }
+  }
+
+  &[class*="bg-"] {
+    .form-control {
+      @include material-placeholder() {
+        color: $white-color;
+      }
+    }
+  }
+
+  .notification {
+    background: $sidebar-info-button-active;
+    border: $border-badge-notification;
+    height: $height-badge-notification;
+    min-width: $height-badge-notification;
+    right: $right-position + 12px;
+  }
+
+  .navbar-toggler .icon-bar {
+    background: $navbar-color-links  !important;
+  }
+
+  @include navbar-colors('primary', $info-dark);
+  @include navbar-colors('info', $info-dark);
+  @include navbar-colors('warning', $warning-dark);
+  @include navbar-colors('danger', $danger-dark);
+  @include navbar-colors('success', $success-dark);
+}

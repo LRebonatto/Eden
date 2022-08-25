@@ -1,0 +1,26 @@
+<div class="modal fade"  tabindex="-1" role="alert" aria-hidden="true">
+    <div class="modal-dialog" role="alert">
+        <div 
+        class="alert alert-danger"  
+        *ngIf= "template==1" 
+        style="background-color:#f04149" 
+        role="alert">
+            <mat-label><strong>Erro!</strong></mat-label>
+            <br>
+            <div *ngFor="let mes of (message|mapToIterable)" >
+                <ul  *ngFor="let mes1 of mes.val">
+                    <li> <mat-label>{{mes1}}</mat-label></li>
+                </ul>  
+            </div>
+        </div>
+        <div 
+        class= "alert alert-success"  
+        *ngIf= "template==2 || template==3" 
+        role= "alert">
+            <div role="alert" style="margin: 0;">
+                <div *ngIf= "template==2"><mat-label><strong>Salvo com sucesso!</strong></mat-label></div>
+                <div *ngIf= "template==3"><mat-label><strong>Excluido com sucesso!</strong></mat-label></div>
+            </div>
+        </div>
+    </div>
+</div>

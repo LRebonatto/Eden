@@ -1,0 +1,82 @@
+<app-generic-alert [message]="message" [type]="type" [template]="template" (onChangeValue)="updateValue($event)">
+</app-generic-alert>
+<div class="background" style="background-image: url('./assets/img/lockscreen/tela_login_1.png')">
+    <div class="card-login">
+        <div class="header">
+            <div class="logo">
+                <img src="assets/img/mes-sitec_white.svg" />
+            </div>
+        </div>
+
+        <div class="card-body">
+            <form (submit)="login()" class="m-0" method="" action="">
+                <span class="bmd-form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="material-icons">email</i>
+                            </span>
+                        </div>
+                        <input autocomplete="off" type="email" name="email" (ngModelChange)="changed()" [(ngModel)]="credentials.email"
+                            class="form-control" placeholder="E-mail..." />
+                    </div>
+                </span>
+                <span class="bmd-form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="material-icons">lock_outline</i>
+                            </span>
+                        </div>
+                        <input autocomplete="off" type="password" name="password" [(ngModel)]="credentials.password" class="form-control"
+                            placeholder="Senha..." />
+                    </div>
+                </span>
+                <span class="bmd-form-group" *ngIf="need_select_branch" style="display: flex; justify-content: center;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="material-icons">factory</i>
+                        </span>
+                    </div>
+                    <mat-form-field >
+                        <mat-select class="form-control" [(ngModel)]="branch_selected" name="branches">
+                            <mat-option class="form-control" *ngFor="let branch of branches" [value]="branch">
+                                {{ branch.name }}
+                            </mat-option>
+                        </mat-select>
+
+                    </mat-form-field>
+                    
+                </span>
+                <div class="botao">
+                    <button mat-raised-button class="btn btn-primary-iform" *ngIf="!need_select_branch"
+                        (submit)="login()">
+                        Login
+                    </button>
+                    <button *ngIf="need_select_branch" mat-raised-button class="btn btn-primary-iform"
+                        (click)="setBranchId()">
+                        Login
+                    </button>
+                    <mat-spinner diameter="30" *ngIf="loading"></mat-spinner>
+                </div>
+
+                <!-- <div *ngIf="!need_select_branch" class="card-footer justify-content-center">
+                <button type="submit" (submit)="login()" class="btn btn-outline-info btn-link btn-lg">
+                  Entrar
+                </button>
+              </div>
+              <div *ngIf="need_select_branch" class="card-footer justify-content-center">
+                <button (click)="setBranchId()" type="button" class="btn btn-outline-info btn-link btn-lg">
+                  Entrar
+                </button>
+              </div> -->
+            </form>
+        </div>
+    </div>
+    <footer class="copyright">
+        &copy;
+        {{ test | date: "yyyy" }}, desenvolvido com
+        <i class="material-icons">favorite</i> por
+        <a href="http://www.sitecbr.com.br" target="_blank" style="font-weight: bold; color: #127fbe">Sitec</a>.
+    </footer>
+</div>

@@ -1,0 +1,22 @@
+<div class="sidebar-wrapper">
+    <ul class="nav">
+        <li routerLinkActive="active" *ngFor="let menu of menuItems?.menu" class="nav-item">
+            <!--Menu-->
+            <a class="nav-link" data-toggle="collapse" href="#{{menu.collapse}}"
+                matTooltip="{{menu.title}}" matTooltipClass="tooltip-primary">
+                <i class="material-icons">{{ menu.icon_type }}</i>
+                <p>{{ menu.title }}<b class="caret"></b></p>
+            </a>
+            <!--Submenu-->
+            <div id="{{menu.collapse}}" class="collapse" >
+                <ul class="nav mt-1 pl-3">
+                    <li routerLinkActive="active" *ngFor="let submenu of menu.submenus" class="nav-item">
+                        <a [routerLink]="[submenu.path]" class="nav-link" matTooltip="{{submenu.title}}" matTooltipClass="tooltip-primary">
+                            <p>{{ submenu.title }}</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>

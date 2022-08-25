@@ -1,0 +1,71 @@
+<app-generic-alert [message]="message" [type]="type" [template]="template" (onChangeValue)="updateValue($event)">
+</app-generic-alert>
+<div class="main-content">
+  <div class="row pb-3">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <button [routerLink]="['create-user/', '00000000-0000-0000-0000-000000000000']" class="btn btn-primary-iform"
+        style="margin-right: 20px; ">
+        Criar usuário
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header card-header-info">
+          <h4 class="card-title">Usuários</h4>
+        </div>
+        <div class="card-body">
+          <div *ngIf="loading" style="text-align:center;margin:0 auto">
+            <mat-spinner style="margin: 0 auto;" diameter="30"></mat-spinner>
+            <span>Carregando...Aguarde!</span>
+          </div>
+          <div class="material-datatables" *ngIf="!loading">
+            <div class="row">
+              <div class="col-md-4">
+                <mat-form-field>
+                  <input matInput type="text" name="search" placeholder="Pesquisa..." [(ngModel)]="filter">
+                </mat-form-field>
+              </div>
+              <mat-icon>search</mat-icon>
+            </div>
+
+            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+              width="100%" style="width: 100%">
+              <thead class="text-info">
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Função</th>
+                <th class="text-right">Ações</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users | filter:filter | paginate: { itemsPerPage: 5, currentPage: p }">
+                  <td>{{ user.name }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>{{ user.role }}</td>
+                  <td class="text-right">
+                    <a (click)="openModalPermissions(user)" href="javascript:void(0s" matTooltip="Permissões" matTooltipClass="tooltip-primary"
+                      class="btn btn-link btn-primary btn-just-icon edit">
+                      <i class="material-icons" style="color: yellowgreen"> library_add </i>
+                    </a>
+                    <a [routerLink]="['create-user/', user.id]" href="javascript:void(0s" matTooltip="Editar" matTooltipClass="tooltip-primary"
+                      class="btn btn-link btn-primary btn-just-icon edit">
+                      <i class="material-icons"> edit </i>
+                    </a>
+                    <a href="javascript:void(0s" (click)="confirmDialog(user.id)" matTooltip="Excluir" matTooltipClass="tooltip-primary"
+                      class="btn btn-link btn-danger btn-just-icon remove">
+                      <i class="material-icons"> close </i>
+                    </a>
+                    
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <pagination-controls previousLabel="Anterior" nextLabel="Próximo" (pageChange)="p = $event">
+            </pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

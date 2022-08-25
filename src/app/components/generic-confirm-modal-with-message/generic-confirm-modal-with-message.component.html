@@ -1,0 +1,35 @@
+<h1 style="font-size: 16px; font-weight: 400;">
+    {{ title }}
+  </h1>
+  
+  <div>
+    <p>{{ message }}</p>
+  </div>
+  <div>
+    <div class="col-md-12">
+        <mat-form-field appearance="fill">
+            <mat-label>Mensagem</mat-label>
+            <input required autocomplete="off" type="text" name="justification" [(ngModel)]="justification" matInput
+             placeholder="Escreva uma justificativa..." />
+        </mat-form-field>
+    </div>
+  </div>
+  <div>
+    <button
+      mat-raised-button
+      class="btn btn-secondary pull-right"
+      style="margin-right: 20px; margin-bottom: 30px"
+      (click)="onDismiss()"
+    >
+      {{ button_cancel }}
+    </button>
+    <button
+      mat-raised-button
+      class="btn btn-warning pull-right"
+      style="margin-right: 20px; margin-bottom: 30px"
+      (click)="onConfirm()"
+    >
+      {{ button_ok }}
+    </button>
+  </div>
+  

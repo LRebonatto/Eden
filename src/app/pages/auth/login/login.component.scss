@@ -1,0 +1,125 @@
+.options {
+  padding: 10px;
+}
+
+.background {
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-position-y: -1px;
+
+  .card-login {
+    margin: auto;
+    z-index: 4;
+    max-width: 560px;
+    height: 450px;
+    min-height: 400px;
+    // box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    box-shadow: 0 0 10px 1px #00000030, 8px 8px 0px 0px #376267ad, -8px -8px 0 0px #42a4b1b3;
+    border-radius: 8% 0% 8% 0%;
+    background: linear-gradient(to bottom, #3a3d46 50%, #ffffff 50%);
+
+    .header {
+      margin: 0px;
+      padding: 60px 0px;
+      width: 350px;
+      height: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .logo {
+        text-align: center;
+
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+
+    .card-body {
+      height: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .botao {
+      padding-top: 15px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 175px;
+      height: auto;
+      text-align: center;
+
+      button {
+        margin: 0;
+      }
+    }
+  }
+
+  .box {
+    border-bottom-right-radius: 40px;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .copyright {
+    padding: 15px 0;
+    position: absolute;
+    bottom: 0;
+    text-shadow: -1px -1px 0px #ff0000a8, 1px 1px 0px #00ffffc4;
+    right: 2%;
+    color: #c0c0c082;
+    font-size: 14px;
+
+    i {
+      color: transparent;
+    }
+
+    @media screen and (max-width: 700px),
+    (max-height: 470px) {
+      display: none;
+    }
+
+    .material-icons {
+      font-size: 18px;
+      position: relative;
+      top: 3px;
+    }
+  }
+}
+
+.login {
+  width: 350px;
+  height: auto;
+}
+
+.titulo {
+  text-align: center;
+}
+
+.inputs {
+  width: 350px;
+  height: auto;
+  text-align: center;
+}
+
+.inputsEmail {
+  padding: 10px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 10px, rgb(0, 0, 0);
+  margin: 2px;
+}
+
+.inputsPassword {
+  padding: 10px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 10px, rgb(0, 0, 0);
+}

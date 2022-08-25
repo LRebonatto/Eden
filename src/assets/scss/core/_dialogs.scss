@@ -1,0 +1,23 @@
+.mat-horizontal-content-container {
+  padding: 0 24px !important;
+  form{
+    margin-bottom: 0;
+  }
+  .card{
+    margin: 20px 0px;
+  }
+}
+.mat-step-header .mat-step-icon-selected,.mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+  background-color: $iform-color !important;
+  color: #fff;
+}
+.mat-stepper-previous {
+  margin-right: 8px;
+}
+
+.divider{
+  border-left: 1px solid #e5e5e5;
+}
+.mat-horizontal-stepper-header{
+  height: 55px !important;
+}

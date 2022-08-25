@@ -1,0 +1,9 @@
+<mat-selection-list #branches1 [multiple]="false">
+    <mat-list-option (click)="changeBranch(branches1)" *ngFor="let branch of branches" [value]="branch">
+      {{branch.name}}
+    </mat-list-option>
+  </mat-selection-list>
+  
+  <p>
+    <!-- Option selected: {{branches1.selectedOptions.selected[0].branch_id?.value}} -->
+  </p>
