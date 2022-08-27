@@ -4,7 +4,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { Routes, RouterModule, PreloadAllModules } from "@angular/router";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { LoginComponent } from "./pages/auth/login/login.component";
-import { SelectModuleComponent } from "app/pages/select-modules/select-module/select-module.component"
 import { RegisterComponent } from "./pages/auth/register/register.component";
 import { AuthGuard } from "./guards/auth.guard";
 import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.component";
@@ -18,13 +17,6 @@ const routes: Routes = [
   {
     path: "auth",
     component: LoginComponent,
-    pathMatch: "full",
-  },
-  {
-    path: "select-module",
-    component: SelectModuleComponent,
-    canActivate: [AuthGuard],
-    canLoad: [AuthGuard],
     pathMatch: "full",
   },
   {

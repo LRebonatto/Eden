@@ -7,8 +7,6 @@ import { GlobalService } from "app/services/global.service";
 import { AuthService } from "app/services/auth.service";
 import { MatDialog } from "@angular/material/dialog";
 import { ModalSelectBranchComponent } from "../modal-select-branch/modal-select-branch.component";
-import { IModules } from "../../pages/select-modules/select-module/interface-modules";
-import "@dotlottie/player-component";
 
 @Component({
   selector: "app-navbar",
@@ -70,7 +68,6 @@ export class NavbarComponent implements OnInit {
       this.html.classList.add("dark-edition");
       this.darknight = true;
     }
-    this.getModule();
     this.listTitles = ROUTES.filter((listTitle) => listTitle);
     const navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName("navbar-toggler")[0];
@@ -228,27 +225,5 @@ export class NavbarComponent implements OnInit {
       .subscribe((menus) => {
         this.menuItems = menus;
       });
-  }
-
-  toggleModule() {
-    this.router.navigate(["select-module"]);
-  }
-
-  getModule() {
-    this.module.id = window.localStorage.getItem(
-      this.globalService.encryptString("module")
-    );
-    this.globalService
-      .getAll("getUserActivedModulesPermitions?branch_id=" + this.branchId)
-      .subscribe(
-        (response: IModules[]) => {
-          response.forEach((element) => {
-            if (element.id == this.module.id) {
-              this.module.path = element.module_img_path;
-            }
-          });
-        },
-        (error) => {}
-      );
   }
 }

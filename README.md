@@ -13,10 +13,6 @@ This project was generated with [Angular CLI 12.1.2](https://www.npmjs.com/packa
 
 ___
 
-~~~
-|  Sitec Desenvolvimento 2022  |
-~~~
-
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 

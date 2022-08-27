@@ -2,7 +2,7 @@
     <div class="sidebar" data-color="azure">
         <div class="logo">
             <div class="logo-img">
-                <img src="/assets/img/mes-sitec_{{mode}}.svg" alt="logo sistema" [routerLink]="['/home']"
+                <img src="/assets/img/logo_{{mode}}.png" alt="logo sistema" [routerLink]="['/home']"
                     style="cursor: pointer;" matTooltip="Ir para a página inicial" matTooltipClass="tooltip-tip" />
             </div>
         </div>
@@ -14,7 +14,7 @@
             <input (click)="toggleTip()" [(ngModel)]="tip" matTooltip="{{tip_message}} dicas"
                 matTooltipClass="tooltip-tip" type="checkbox" class="l">
         </div>
-        <div class="sidebar-background" style="background-image: url(./assets/img/bg.jpg)"></div>
+        <div class="sidebar-background" style="background-image: url(./assets/img/sidebar-4.jpg)"></div>
     </div>
     <div class="main-panel">
         <app-navbar></app-navbar>

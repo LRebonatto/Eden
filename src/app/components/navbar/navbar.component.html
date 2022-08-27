@@ -2,11 +2,11 @@
     <div class="container-fluid">
         <div class="navbar-wrapper">
             <ul class="nav">
-                <mat-button class="btn menu-item" [matMenuTriggerFor]="main" matTooltip="menu"
+                <!-- <mat-button class="btn menu-item" [matMenuTriggerFor]="main" matTooltip="menu"
                     matTooltipClass="tooltip-primary">
                     <mat-icon class="menu-icon">menu</mat-icon>
                     <span>Menu Principal</span>
-                </mat-button>
+                </mat-button> -->
                 <mat-menu #main="matMenu">
                     <ng-container *ngFor="let menu of menuItems?.menu">
                         <button *ngIf="menu.type === 'link'" mat-menu-item class="menu-item" [routerLink]="[menu.path]"
@@ -69,19 +69,6 @@
                         matTooltipClass="tooltip-primary">
                         <strong> {{userName}} </strong>
                     </h5>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-primary-iform" (click)="openDialog()" matTooltip="Selecionar filial"
-                        matTooltipClass="tooltip-primary">{{branchName}}</button>
-                </li>
-                <li class="nav-item">
-                    <button class="frame-circle" (click)="toggleModule()" matTooltip="Selecionar módulo"
-                        matTooltipClass="tooltip-primary">
-                        <dotlottie-player *ngIf="module.path" class="item-lottie" autoplay mode="normal"
-                            src="{{module.path}}">
-                        </dotlottie-player>
-                        <i class="material-icons change">sync</i>
-                    </button>
                 </li>
 
                 <li class="nav-item">

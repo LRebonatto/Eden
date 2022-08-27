@@ -38,18 +38,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PageAccessDeniedComponent } from './page-access-denied/page-access-denied.component';
 import { HomeComponent } from './home/home.component';
-import { GroupsShowComponent } from './groups/groups-show/groups-show.component';
-import { GroupsCreateComponent } from './groups/groups-create/groups-create.component';
 import { UsersShowComponent } from './users/users-show/users-show.component';
 import { UsersCreateComponent } from './users/users-create/users-create.component';
 import { MathJaxModule } from 'ngx-mathjax';
-import { IntegrationBranchesComponent } from './branches/integration-branches/integration-branches.component';
-import { ModalIntegrationBranchesComponent } from './branches/modal-integration-branches/modal-integration-branches.component';
-import { IntegrationUsersComponent } from './users/integration-users/integration-users.component';
-import { EditBranchComponent } from './branches/edit-branch/edit-branch.component';
-import { ModalIntegrationUsersComponent } from './users/modal-integration-users/modal-integration-users.component';
 import { ModalPermissionsUserComponent } from './users/modal-permissions-user/modal-permissions-user.component';
-import { SelectModuleComponent } from './select-modules/select-module/select-module.component';
 import { LottieModule } from 'ngx-lottie';
 
 export function playerFactory() {
@@ -63,17 +55,9 @@ export function playerFactory() {
     PageNotFoundComponent,
     PageAccessDeniedComponent,
     HomeComponent,
-    GroupsShowComponent,
-    GroupsCreateComponent,
     UsersShowComponent,
     UsersCreateComponent,
-    IntegrationBranchesComponent,
-    ModalIntegrationBranchesComponent,
-    IntegrationUsersComponent,
-    EditBranchComponent,
-    ModalIntegrationUsersComponent,
     ModalPermissionsUserComponent,
-    SelectModuleComponent
   ],
   imports: [
     CommonModule,
@@ -118,9 +102,6 @@ export function playerFactory() {
   providers: [
   ],
   exports:[
-  ],
-  entryComponents:[
-    ModalIntegrationBranchesComponent
   ]
 })
 export class PagesModule { }

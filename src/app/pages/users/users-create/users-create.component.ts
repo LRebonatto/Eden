@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GenericAlertComponent } from 'app/components/generic-alert/generic-alert.component';
-import { IGroups } from 'app/pages/groups/interface-groups';
 import { AuthService } from 'app/services/auth.service';
 import { GlobalService } from 'app/services/global.service';
 import { IUsers } from '../interface-users';
@@ -44,7 +43,6 @@ export class UsersCreateComponent implements OnInit {
     can_followup:null,
     branch_id:''
   };
-  groups:IGroups[]
 
   loading: boolean = false;
   mode_edit: boolean = false;
@@ -57,7 +55,6 @@ export class UsersCreateComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.user);
-    this.getGroups()
     this.me();
     let id = String(this.activatedRoute.snapshot.paramMap.get("id"));
     if(id != '00000000-0000-0000-0000-000000000000'){
@@ -71,19 +68,6 @@ export class UsersCreateComponent implements OnInit {
     this.globalService.getAll('me').
       subscribe((user)=>{
         this.me_data = user
-      })
-  }
-
-  getGroups(){
-    let branch_id = this.authService.getBranch()
-    this.loading = true
-    this.globalService.getAll(`groups?branch_id=${branch_id}`)
-      .subscribe((groups:IGroups[])=>{
-        this.groups = groups
-        this.loading = false
-      }, error =>{
-        this.loading = false
-        console.log(error)
       })
   }
 

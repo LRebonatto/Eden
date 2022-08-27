@@ -69,10 +69,7 @@ export class LoginComponent implements OnInit {
             result.branches[0].id
           );
           this.authService.setBranch(result.branches[0].id);
-          //this.getMenus();
-          //If module_accesses.lenght == 1 => this.router.navigate(["/home"])
-          //else if module_accesses.lenght > 1 => this.router.navigate(["/select-module"])
-          this.router.navigate(["/select-module"]);
+          this.router.navigate(["/home"]);
         } else {
           this.need_select_branch = true;
           this.branches = result.branches;
@@ -113,7 +110,7 @@ export class LoginComponent implements OnInit {
       this.branch_selected.name
     );
     //this.getMenus();
-    this.router.navigate(["/select-module"]);
+    this.router.navigate(["/home"]);
   }
   handleMessage() {
     this.alertModal.slowShow();
