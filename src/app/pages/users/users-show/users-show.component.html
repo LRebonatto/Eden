@@ -44,10 +44,6 @@
                   <td>{{ user.email }}</td>
                   <td>{{ user.role }}</td>
                   <td class="text-right">
-                    <a (click)="openModalPermissions(user)" href="javascript:void(0s" matTooltip="Permissões" matTooltipClass="tooltip-primary"
-                      class="btn btn-link btn-primary btn-just-icon edit">
-                      <i class="material-icons" style="color: yellowgreen"> library_add </i>
-                    </a>
                     <a [routerLink]="['create-user/', user.id]" href="javascript:void(0s" matTooltip="Editar" matTooltipClass="tooltip-primary"
                       class="btn btn-link btn-primary btn-just-icon edit">
                       <i class="material-icons"> edit </i>

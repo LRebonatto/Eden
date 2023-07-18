@@ -17,7 +17,7 @@
                                 <i class="material-icons">email</i>
                             </span>
                         </div>
-                        <input autocomplete="off" type="email" name="email" (ngModelChange)="changed()" [(ngModel)]="credentials.email"
+                        <input autocomplete="off" type="email" name="email" [(ngModel)]="credentials.email"
                             class="form-control" placeholder="E-mail..." />
                     </div>
                 </span>
@@ -32,44 +32,13 @@
                             placeholder="Senha..." />
                     </div>
                 </span>
-                <span class="bmd-form-group" *ngIf="need_select_branch" style="display: flex; justify-content: center;">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">
-                            <i class="material-icons">factory</i>
-                        </span>
-                    </div>
-                    <mat-form-field >
-                        <mat-select class="form-control" [(ngModel)]="branch_selected" name="branches">
-                            <mat-option class="form-control" *ngFor="let branch of branches" [value]="branch">
-                                {{ branch.name }}
-                            </mat-option>
-                        </mat-select>
-
-                    </mat-form-field>
-                    
-                </span>
                 <div class="botao">
-                    <button mat-raised-button class="btn btn-primary-iform" *ngIf="!need_select_branch"
+                    <button mat-raised-button class="btn btn-primary-iform"
                         (submit)="login()">
-                        Login
-                    </button>
-                    <button *ngIf="need_select_branch" mat-raised-button class="btn btn-primary-iform"
-                        (click)="setBranchId()">
                         Login
                     </button>
                     <mat-spinner diameter="30" *ngIf="loading"></mat-spinner>
                 </div>
-
-                <!-- <div *ngIf="!need_select_branch" class="card-footer justify-content-center">
-                <button type="submit" (submit)="login()" class="btn btn-outline-info btn-link btn-lg">
-                  Entrar
-                </button>
-              </div>
-              <div *ngIf="need_select_branch" class="card-footer justify-content-center">
-                <button (click)="setBranchId()" type="button" class="btn btn-outline-info btn-link btn-lg">
-                  Entrar
-                </button>
-              </div> -->
             </form>
         </div>
     </div>

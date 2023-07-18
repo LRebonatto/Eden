@@ -53,10 +53,10 @@
                                 <div class="col-md-6">
                                     <mat-form-field appearance="fill">
                                         <mat-label>Telefone</mat-label>
-                                        <input autocomplete="off" type="text" [(ngModel)]="user.phone" matInput placeholder="" />
+                                        <input autocomplete="off" type="text" name="phone" [(ngModel)]="user.phone" matInput placeholder="" />
                                     </mat-form-field>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6" *ngIf="me_data">
                                     <mat-form-field appearance="fill" *ngIf="me_data.role == 'super-root'" >
                                         <mat-label>Função</mat-label>
                                         <mat-select required name="role" [(ngModel)]="user.role">
@@ -82,59 +82,18 @@
                                     </mat-form-field>
                                 </div>
                             </div>
-                            <!-- <div class="row">
+                            <div class="row">
                                 <div class="col-md-6">
                                     <mat-form-field appearance="fill">
-                                        <mat-label>Grupo</mat-label>
-                                        <mat-select  name="func" [(ngModel)]="user.group_id">
-                                            <mat-option *ngFor="let group of groups" [value]="group.id">
-                                                {{group.description}}
-                                            </mat-option>
-                                        </mat-select>
+                                        <mat-label>CPF/CNPJ</mat-label>
+                                        <input autocomplete="off" type="text" name="cpf_cnpj" [(ngModel)]="user.cpf_cnpj" matInput placeholder="" />
                                     </mat-form-field>
                                 </div>
-                            </div> -->
-                            <div class="row">
                                 <div class="col-md-6">
                                     <mat-checkbox name="active" [(ngModel)]="user.active">
                                         Ativo
                                     </mat-checkbox>
                                 </div>
-                                <div class="col-md-6">
-                                    <mat-checkbox name="can_create" [(ngModel)]="user.can_create">
-                                        Pode inserir registros
-                                    </mat-checkbox>
-                                </div>
-                                <!-- <div class="col-md-6">
-                                    <mat-checkbox name="can_create_header" [(ngModel)]="user.can_create_header">
-                                        Pode criar cabeçalho de formulários
-                                    </mat-checkbox>
-                                </div> -->
-                                <div class="col-md-6">
-                                    <mat-checkbox name="can_edit" [(ngModel)]="user.can_edit">
-                                        Pode editar registros
-                                    </mat-checkbox>
-                                </div>
-                                <!-- <div class="col-md-6">
-                                    <mat-checkbox name="can_finish_header" [(ngModel)]="user.can_finish_header">
-                                        Pode finalizar formulários
-                                    </mat-checkbox>
-                                </div> -->
-                                <div class="col-md-6">
-                                    <mat-checkbox name="delete" [(ngModel)]="user.can_delete">
-                                        Pode deletar registros
-                                    </mat-checkbox>
-                                </div>
-                                <!-- <div class="col-md-6">
-                                    <mat-checkbox name="can_list" [(ngModel)]="user.can_list">
-                                        Pode visualizar registros
-                                    </mat-checkbox>
-                                </div> -->
-                                <!-- <div class="col-md-6">
-                                    <mat-checkbox name="can_list" [(ngModel)]="user.can_followup">
-                                        Pode fazer acompanhamento
-                                    </mat-checkbox>
-                                </div> -->
                             </div>
 
                             <button *ngIf="!mode_edit" mat-raised-button class="btn btn-primary-iform pull-right"

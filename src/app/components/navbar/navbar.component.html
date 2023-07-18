@@ -2,24 +2,19 @@
     <div class="container-fluid">
         <div class="navbar-wrapper">
             <ul class="nav">
-                <!-- <mat-button class="btn menu-item" [matMenuTriggerFor]="main" matTooltip="menu"
-                    matTooltipClass="tooltip-primary">
-                    <mat-icon class="menu-icon">menu</mat-icon>
-                    <span>Menu Principal</span>
-                </mat-button> -->
                 <mat-menu #main="matMenu">
                     <ng-container *ngFor="let menu of menuItems?.menu">
                         <button *ngIf="menu.type === 'link'" mat-menu-item class="menu-item" [routerLink]="[menu.path]"
                             routerLinkActive="active">
-                            <mat-icon>{{ menu.icon_type }}</mat-icon>
+                            <mat-icon>{{ menu.icon }}</mat-icon>
                             <span>{{menu.title}}</span>
                         </button>
                         <button *ngIf="menu.type === 'sub'" mat-menu-item class="menu-item" [matMenuTriggerFor]="sub">
-                            <mat-icon>{{ menu.icon_type }}</mat-icon>
+                            <mat-icon>{{ menu.icon }}</mat-icon>
                             <span>{{menu.title}}</span>
                         </button>
                         <button *ngIf="menu.type === 'sub1'" mat-menu-item class="menu-item" [matMenuTriggerFor]="sub1">
-                            <mat-icon>{{ menu.icon_type }}</mat-icon>
+                            <mat-icon>{{ menu.icon }}</mat-icon>
                             <span>{{menu.title}}</span>
                         </button>
                     </ng-container>

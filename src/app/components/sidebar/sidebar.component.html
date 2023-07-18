@@ -3,16 +3,16 @@
         <li routerLinkActive="active" *ngFor="let menu of menuItems?.menu" class="nav-item">
             <!-- If is a single menu -->
             <a class="nav-link" [routerLink]="[menu.path]" *ngIf="menu.type === 'link'">
-                <i class="material-icons">{{ menu.icon_type }}</i>
+                <i class="material-icons">{{ menu.icon }}</i>
                 <p>{{ menu.title }}</p>
             </a>
             <!--If it have a submenu-->
-            <a class="nav-link" data-toggle="collapse" *ngIf="menu.type === 'sub'" href="#{{menu.collapse}}">
-                <i class="material-icons">{{ menu.icon_type }}</i>
+            <a class="nav-link" data-toggle="collapse" *ngIf="menu.type === 'sub'" href="#{{menu.title}}">
+                <i class="material-icons">{{ menu.icon }}</i>
                 <p>{{ menu.title }}<b class="caret"></b></p>
             </a>
             <!--Menu with submenu-->
-            <div id="{{menu.collapse}}" class="collapse" *ngIf="menu.type === 'sub'">
+            <div id="{{menu.title}}" class="collapse" *ngIf="menu.type === 'sub'">
                 <ul class="nav mt-1 pl-3">
                     <li routerLinkActive="active" *ngFor="let submenu of menu.submenus" class="nav-item">
                         <a  [routerLink]="[submenu.path]" class="nav-link">

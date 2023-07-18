@@ -41,8 +41,13 @@ import { HomeComponent } from './home/home.component';
 import { UsersShowComponent } from './users/users-show/users-show.component';
 import { UsersCreateComponent } from './users/users-create/users-create.component';
 import { MathJaxModule } from 'ngx-mathjax';
-import { ModalPermissionsUserComponent } from './users/modal-permissions-user/modal-permissions-user.component';
 import { LottieModule } from 'ngx-lottie';
+import { ServicesShowComponent } from './services/services-show/services-show.component';
+import { ServicesCreateComponent } from './services/services-create/services-create.component';
+import { ProjectsCreateComponent } from './projects/projects-create/projects-create.component';
+import { ProjectsShowComponent } from './projects/projects-show/projects-show.component';
+import { TicketsCreateComponent } from './tickets/tickets-create/tickets-create.component';
+import { TicketsShowComponent } from './tickets/tickets-show/tickets-show.component';
 
 export function playerFactory() {
   return import('lottie-web');
@@ -57,7 +62,12 @@ export function playerFactory() {
     HomeComponent,
     UsersShowComponent,
     UsersCreateComponent,
-    ModalPermissionsUserComponent,
+    ServicesShowComponent,
+    ServicesCreateComponent,
+    ProjectsCreateComponent,
+    ProjectsShowComponent,
+    TicketsCreateComponent,
+    TicketsShowComponent,
   ],
   imports: [
     CommonModule,

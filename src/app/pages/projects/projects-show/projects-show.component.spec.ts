@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalSelectBranchComponent } from './modal-select-branch.component';
+import { ProjectsShowComponent } from './projects-show.component';
 
-describe('ModalSelectBranchComponent', () => {
-  let component: ModalSelectBranchComponent;
-  let fixture: ComponentFixture<ModalSelectBranchComponent>;
+describe('ProjectsShowComponent', () => {
+  let component: ProjectsShowComponent;
+  let fixture: ComponentFixture<ProjectsShowComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModalSelectBranchComponent ]
+      declarations: [ ProjectsShowComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModalSelectBranchComponent);
+    fixture = TestBed.createComponent(ProjectsShowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
